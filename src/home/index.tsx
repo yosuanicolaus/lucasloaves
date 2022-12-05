@@ -1,7 +1,9 @@
+import { FeaturedProducts } from "./FeaturedProducts";
+
 export function HomePage() {
   return (
-    <div>
-      <div>Home page</div>
+    <div className="flex-grow">
+      <FeaturedProducts />
     </div>
   );
 }

@@ -16,3 +16,4 @@ const db = getFirestore(app);
 
 export const ordersQuery = collection(db, "orders");
 export const jobsQuery = collection(db, "jobs");
+export const productsQuery = collection(db, "products");
