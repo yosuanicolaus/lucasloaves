@@ -3,12 +3,15 @@ import { AboutPage } from "./about";
 import { CareersPage } from "./careers";
 import { ContactPage } from "./contact";
 import { HomePage } from "./home";
+import { Footer } from "./layout/footer";
+import { Header } from "./layout/header";
 import { OrderPage } from "./order";
 
 function App() {
   return (
-    <div className="flex-grow">
+    <div className="min-h-screen flex flex-col">
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -16,6 +19,7 @@ function App() {
           <Route path="/order" element={<OrderPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
