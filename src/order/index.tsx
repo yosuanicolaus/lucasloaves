@@ -1,11 +1,11 @@
 import { useCart } from "../cart";
 
 export function OrderPage() {
-  const { products } = useCart();
+  const { products, calculateOrders } = useCart();
   return (
     <div className="flex-grow">
       <div>Order page</div>
-      <div>{JSON.stringify(products)}</div>
+      <div>{JSON.stringify(calculateOrders())}</div>
     </div>
   );
 }

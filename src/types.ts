@@ -9,8 +9,8 @@ export type Job = {
   description: string;
 };
 
-export type Order = {
-  id: number;
-  products: Product[];
-  totalPrice: number;
+export type ProductOrder = {
+  name: string;
+  price: number;
+  quantity: number;
 };
