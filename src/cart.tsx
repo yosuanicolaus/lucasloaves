@@ -5,6 +5,7 @@ interface CartContextInterface {
   totalItem: number;
   products: Product[];
   totalPrice: number;
+  addProduct: (product: Product) => void;
 }
 
 const CartContext = createContext({} as CartContextInterface);
@@ -13,6 +14,10 @@ export const useCart = () => useContext(CartContext);
 
 export function CartProvider({ children }: PropsWithChildren) {
   const [products, setProducts] = useState<Product[]>([]);
+
+  const addProduct = (product: Product) => {
+    setProducts([...products, product]);
+  };
 
   return (
     <CartContext.Provider
@@ -23,6 +28,7 @@ export function CartProvider({ children }: PropsWithChildren) {
           (acc, currProduct) => acc + currProduct.price,
           0
         ),
+        addProduct,
       }}
     >
       <>{children}</>

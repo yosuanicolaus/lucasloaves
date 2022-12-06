@@ -1,10 +1,12 @@
 import { useCollectionDataOnce } from "react-firebase-hooks/firestore";
+import { useCart } from "../cart";
 import { productsQuery } from "../firebase";
 import { Product } from "../types";
 
 export function Products() {
   const [data, loading] = useCollectionDataOnce(productsQuery);
   const products = data as Product[];
+  const { addProduct } = useCart();
 
   return (
     <div className="flex-grow p-5">
@@ -19,7 +21,12 @@ export function Products() {
             </div>
             <div className="w-36 text-right">
               <div className="font-bold italic">${product.price}</div>
-              <button className="bg-blue-400 rounded p-1">Add to Cart</button>
+              <button
+                className="bg-blue-400 rounded p-1"
+                onClick={() => addProduct(product)}
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}
