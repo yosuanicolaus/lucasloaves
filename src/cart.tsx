@@ -29,10 +29,16 @@ export function CartProvider({ children }: PropsWithChildren) {
         // product exist in order already
         const idx = orders.findIndex((order) => order.name === product.name);
         orders[idx].quantity++;
+        orders[idx].orderPrice = orders[idx].price * orders[idx].quantity;
       } else {
         // new product
         seenProduct.add(product.name);
-        orders.push({ name: product.name, price: product.price, quantity: 1 });
+        orders.push({
+          name: product.name,
+          price: product.price,
+          quantity: 1,
+          orderPrice: product.price,
+        });
       }
     });
 

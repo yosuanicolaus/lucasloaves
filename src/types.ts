@@ -13,4 +13,5 @@ export type ProductOrder = {
   name: string;
   price: number;
   quantity: number;
+  orderPrice: number;
 };
