@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDM84wvQ6s0lQ5zoOcSF5829CbbmWJufqs",
@@ -17,3 +17,15 @@ const db = getFirestore(app);
 export const ordersQuery = collection(db, "orders");
 export const jobsQuery = collection(db, "jobs");
 export const productsQuery = collection(db, "products");
+
+export async function addOrder(
+  name: string,
+  date: string,
+  productOrders: any[]
+) {
+  try {
+    await addDoc(ordersQuery, { name, date, productOrders });
+  } catch (error) {
+    console.log(error);
+  }
+}

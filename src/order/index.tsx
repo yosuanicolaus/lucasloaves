@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../cart";
+import { addOrder } from "../firebase";
 
 export function OrderPage() {
   const { calculateOrders, totalPrice } = useCart();
@@ -48,7 +49,19 @@ export function OrderPage() {
         <div>
           Total Price: <b>${totalPrice}</b>
         </div>
-        <form action="#" className="grid place-content-center">
+        <form
+          action="#"
+          className="grid place-content-center"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const form = document.querySelector("form") as HTMLFormElement;
+            const formData = new FormData(form);
+            const name = formData.get("name") as string;
+            const date = formData.get("date") as string;
+            await addOrder(name, date, productOrders);
+            alert("Order completed.");
+          }}
+        >
           <label htmlFor="name">Name</label>
           <input className="border max-w-md" type="text" name="name" required />
           <label htmlFor="date">Pickup Date</label>
