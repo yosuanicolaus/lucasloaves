@@ -1,8 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../cart";
 
 export function OrderPage() {
   const { calculateOrders, totalPrice } = useCart();
   const productOrders = calculateOrders();
+  const navigate = useNavigate();
+
+  if (productOrders.length === 0)
+    return (
+      <div className="m-8 text-center flex-grow flex justify-center items-center flex-col">
+        <div className="italic">
+          You haven't added any item into your shopping cart
+        </div>
+        <button
+          className="rounded bg-blue-800 text-white p-2 m-2"
+          onClick={() => navigate("/products")}
+        >
+          Start Ordering
+        </button>
+      </div>
+    );
 
   return (
     <div className="flex-grow p-5 text-center">
