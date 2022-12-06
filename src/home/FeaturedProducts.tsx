@@ -5,7 +5,7 @@ import { Product } from "../types";
 export function FeaturedProducts() {
   const [data, loading, error] = useCollectionDataOnce(productsQuery);
   const products = data as Product[];
-  const featured = products.slice(0, 3);
+  const featured = products ? products.slice(0, 3) : [];
   if (error) return <div>Error: {error.message}</div>;
 
   return (
