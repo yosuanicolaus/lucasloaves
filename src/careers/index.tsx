@@ -1,4 +1,5 @@
 import { useCollectionDataOnce } from "react-firebase-hooks/firestore";
+import { Link } from "react-router-dom";
 import { jobsQuery } from "../firebase";
 import { Job } from "../types";
 
@@ -14,9 +15,11 @@ export function CareersPage() {
           <div className="border p-5 mb-3" key={job.name}>
             <h2 className="font-bold">{job.name}</h2>
             <div>{job.description}</div>
-            <button className="bg-blue-700 text-white rounded m-2 p-2">
-              Apply now
-            </button>
+            <Link to={"/careers/details"}>
+              <button className="bg-blue-700 text-white rounded m-2 p-2">
+                Apply now
+              </button>
+            </Link>
           </div>
         ))}
     </div>

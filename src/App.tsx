@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AboutPage } from "./about";
 import { BreadMakingClassPage } from "./bread-making-class";
 import { CareersPage } from "./careers";
+import { CareerDetailsPage } from "./careers/details";
 import { CartProvider } from "./cart";
 import { ContactPage } from "./contact";
 import { HomePage } from "./home";
@@ -29,6 +30,7 @@ function App() {
               path="/bread-making-class"
               element={<BreadMakingClassPage />}
             />
+            <Route path="/careers/details" element={<CareerDetailsPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
           </Routes>
           <Footer />
