@@ -12,6 +12,12 @@ export function Header() {
         <Link className="text-gray-700 hover:text-white" to={"/"}>
           Home
         </Link>
+        <Link
+          className="text-gray-700 hover:text-white"
+          to={"/bread-making-class"}
+        >
+          Bread Making Class
+        </Link>
         <Link className="text-gray-700 hover:text-white" to={"/about"}>
           About Us
         </Link>

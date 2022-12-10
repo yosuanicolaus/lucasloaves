@@ -22,6 +22,9 @@ export function Footer() {
           <li>
             <Link to={"/contact"}>Contact</Link>
           </li>
+          <li>
+            <Link to={"/privacy"}>Privacy</Link>
+          </li>
         </ul>
         <div className="flex justify-center items-center flex-col">
           <b>Follow us:</b>
