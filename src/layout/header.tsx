@@ -4,7 +4,7 @@ import { useCart } from "../cart";
 export function Header() {
   const { totalItem } = useCart();
   return (
-    <div className="bg-orange-400 flex items-center sticky top-0">
+    <div className="bg-orange-400 flex items-center sticky top-0 overflow-auto">
       <h1 className="text-2xl p-3">
         <Link to={"/"}>Luca's Loaves</Link>
       </h1>
